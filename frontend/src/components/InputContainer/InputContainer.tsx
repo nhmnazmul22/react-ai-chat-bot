@@ -3,7 +3,7 @@ import Container from "../Layout/Container";
 
 const InputContainer = () => {
   return (
-    <div className="bg-slate-50 p-3">
+    <div className="bg-slate-50 py-5 border-t border-gray-200">
       <Container>
         <form className="flex gap-2">
           <input
