@@ -11,8 +11,8 @@ const InputContainer = () => {
             placeholder="Type your message..."
             className="flex-1 bg-white px-4 outline-0 border border-gray-200 rounded-full text-sm"
           />
-          <button className="bg-linear-to-r from-cyan-500 to-blue-500 p-2 text-white rounded-full flex justify-center items-center w-[45px] h-[45px]">
-            <Send />
+          <button className="bg-linear-to-r from-cyan-500 to-blue-500 p-2 text-white rounded-full">
+            <Send size={24} />
           </button>
         </form>
       </Container>

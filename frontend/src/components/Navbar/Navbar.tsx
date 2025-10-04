@@ -6,7 +6,7 @@ const Navbar = () => {
     <nav className="py-3 border-b border-gray-200 bg-slate-50">
       <Container>
         <div className="flex gap-2 items-center">
-          <div className="bg-linear-to-r from-cyan-500 to-blue-500 text-white p-3 rounded-full w-[45px] h-[45px] flex justify-center items-center">
+          <div className="bg-linear-to-r from-cyan-500 to-blue-500 text-white p-2 rounded-full">
             <MessageCircle size={24} />
           </div>
           <div className="space-y-5">
