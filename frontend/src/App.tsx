@@ -1,10 +1,11 @@
-import "./App.css";
+import Conversation from "./components/Conversation/Conversation";
+import Layout from "./components/Layout/Layout";
 
 function App() {
   return (
-    <>
-      <h1 className="text-2xl text-blue-500">Hello world</h1>
-    </>
+    <Layout>
+      <Conversation></Conversation>
+    </Layout>
   );
 }
 
