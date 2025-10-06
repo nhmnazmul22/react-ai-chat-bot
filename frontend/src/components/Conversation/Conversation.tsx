@@ -5,7 +5,7 @@ import Message from "./Message";
 const Conversation = () => {
   const { messages, loading } = useConversationContext();
   return (
-    <div className="min-h-[74vh] max-h-[74px] h-full p-3 overflow-y-auto">
+    <div className="min-h-[80vh] max-h-[80vh] h-full p-3 overflow-y-auto">
       <Container>
         <div className="flex flex-col gap-5 justify-between">
           {messages.length > 0 &&

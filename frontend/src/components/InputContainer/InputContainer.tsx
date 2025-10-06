@@ -8,15 +8,27 @@ const InputContainer = () => {
   const { setLoading, handleAddNewMessage } = useConversationContext();
 
   const handleAiResponse = (messageObj: MessageType) => {
-    console.log("MessageObj", messageObj);
-    const aiPromise: Promise<MessageType> = Promise.resolve({
-      type: "ai",
-      text: "Hello World from ai",
-      date: new Date(Date.now()),
-    });
+    if (messageObj) {
+      const aiPromise: Promise<MessageType> = Promise.resolve({
+        type: "ai",
+        text: "Hello World from ai",
+        date: new Date(Date.now()),
+      });
 
-    const data = aiPromise.then((res) => res);
-    return data;
+      const data = aiPromise.then((res) => res);
+      return data;
+    }
+  };
+
+  const handleAiMessageSend = async (messageObj: MessageType) => {
+    setLoading(true);
+    setTimeout(async () => {
+      const aiMessage = await handleAiResponse(messageObj);
+      if (aiMessage) {
+        handleAddNewMessage(aiMessage);
+        setLoading(false);
+      }
+    }, 2000);
   };
 
   const handleSubmit = (e: FormEvent) => {
@@ -30,19 +42,13 @@ const InputContainer = () => {
       date: new Date(Date.now()),
     };
 
-    handleAddNewMessage(messageObj);
     form.reset();
-
-    setTimeout(async () => {
-      const aiMessage = await handleAiResponse(messageObj);
-      handleAddNewMessage(aiMessage);
-      setLoading(true);
-    }, 2000);
-    setLoading(false);
+    handleAddNewMessage(messageObj);
+    handleAiMessageSend(messageObj);
   };
 
   return (
-    <div className="bg-slate-50 py-5 border-t border-gray-200">
+    <div className="bg-slate-50 border-t border-gray-200 h-[75px] py-4">
       <Container>
         <form onSubmit={handleSubmit} className="flex gap-2">
           <input
@@ -55,7 +61,7 @@ const InputContainer = () => {
             type="submit"
             className="bg-linear-to-r from-cyan-500 to-blue-500 p-2 text-white rounded-full"
           >
-            <Send size={24} />
+            <Send size={22} />
           </button>
         </form>
       </Container>

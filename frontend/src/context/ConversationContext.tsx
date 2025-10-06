@@ -29,12 +29,11 @@ export const ConversationContextProvider = ({
   const [loading, setLoading] = useState(false);
 
   const handleAddNewMessage = (newMessage: MessageType) => {
-    const newMessages = [...messages, newMessage];
-    console.log("newMessages", newMessages);
-    setMessages(newMessages);
+    console.log("message", messages);
+    console.log("newMessages", newMessage);
+    setMessages((prevMessages) => [...prevMessages, newMessage]);
   };
 
-  console.log("message", messages);
   return (
     <ConversationContext.Provider
       value={{ loading, setLoading, messages, handleAddNewMessage }}
